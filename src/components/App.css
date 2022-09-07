@@ -24,3 +24,38 @@
   opacity: 90%;
   border-radius: 20px;
 }
+
+
+.admin-home-block{
+  background: #000;
+  width:fit-content;
+  opacity: 90%;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.admin-home-button{
+  height: 50px;
+  width: 300px;
+  margin: 20px;
+}
+
+
+
+.table-block{
+  background-color: #000;
+  color: greenyellow;
+  margin: 40px;
+  width:fit-content;
+  padding: 40px;
+  border-radius: 10px;
+  opacity: 90%;
+  float: left;
+  
+}
+
+/*
+.table-row{
+  display:flex; 
+  flex-direction: row;
+}*/
