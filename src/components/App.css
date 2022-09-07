@@ -54,8 +54,55 @@
   
 }
 
-/*
-.table-row{
-  display:flex; 
-  flex-direction: row;
-}*/
+.table-main-head{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color:brown;
+  padding: 20px;
+  border-radius: 10px;
+  background: #000;
+  width:fit-content;
+  opacity: 90%;
+}
+
+.cart-head{
+  background-color: black;
+  opacity: 90%;
+  color: brown;
+  margin: 30px;
+  padding: 50px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.dec-button{
+  color: green;
+  height: 30px;
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  margin: 10px;
+  margin-left: 40px;
+}
+
+
+.inc-button{
+  color: green;
+  height: 30px;
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  margin: 10px;
+  
+}
+
+.cart-items{
+  display:inline-flex;
+  font-size: 30px;
+  margin: 20px;
+}
+
+.cart-sub-head{
+  font-size: 30px;
+}
+
