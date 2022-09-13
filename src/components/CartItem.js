@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 const CartItem = () =>
 {
     const [counter,Setcounter]= useState(0);
-
-    useEffect(() =>
-    {
-        if(this.counter<0)
-        {
-            alert("Items cannot be less than 0");
-            Setcounter(0);
-        }
-    });
 
     const handleDecrement = () =>
     {

@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Tableview = () =>
 {
+    const [status,Setstatus] = useState('active'); // using status from DB
+
+    const SubmitStatus = () =>
+    {
+        // pushing status to db from here
+    }
     return(
         <div className='table-block'>
-            <h3 style={{color:"brown"}}>Table No. 1</h3>
+            <h3 >Table No. 1</h3>
             <div style={{color:"white"}}>
                 <h5>Ordered Items</h5>
                 <ul>
@@ -14,7 +22,14 @@ const Tableview = () =>
                 </ul>
             </div>
 
-            <div style={{color:"brown"}}>Order Total : 1000</div>
+            <label> Status : <input value={status} onChange={(e)=> Setstatus(e.target.value)}></input></label>
+            <br></br><br></br>
+
+            <Button variant='outline-warning' onClick={SubmitStatus}> Submit Status</Button>
+
+            <br></br><br></br>
+            <Link to='/adminhome/showtables/bill'><Button variant='outline-warning'>View Bill</Button></Link> 
+           
         </div>
     );
 }
