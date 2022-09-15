@@ -1,8 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-export const StaffMember = () => {
+export const StaffMember = ({staff}) => {
+
+    const {id,name,designation} = staff;
   return (
-    <div className='table-block'>    
+    <div className='staff-block'>
+        <table>
+            <tr>
+                <td ><h5>{id}</h5></td>
+                <td ><h5>{name}</h5></td>
+                <td ><h5>{designation}</h5></td>
+            </tr>
+        </table>
+    </div>
+    
+  );
+}
+
+
+{/*<div className='table-block'>    
         <h3>Employee Name</h3>
         <div style={{color:"white"}}>    
             <ul>
@@ -10,6 +26,4 @@ export const StaffMember = () => {
             <li>Designation : Chef</li>
             </ul>
         </div>
-    </div>
-  );
-}
+    </div> */}

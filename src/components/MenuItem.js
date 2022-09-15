@@ -24,24 +24,41 @@ const MenuItem = ({item}) => {
     }
 
   return (
-    <div>
-        
+    <div className='menu-item-block'>
+        <table>
+            <tr>
+                <td rowspan="2"><img src={img} alt='food' /></td>
+                <td className=''><h3>{name}</h3></td>
+                <td><h3> Rs. {price}</h3></td>
+                <td rowspan="2" className='cart-items'>
+                <button className="dec-button" onClick={handleDecrement}>-</button>
+                <p>{counter}</p>
+                <button className="inc-button" onClick={handleIncrement}>+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>{info}</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+{/*         
         <div className='menu-item-block'>
-            <img src={img} alt='food' />
             <div className=''>
-                <h3>{name}</h3>
+                <img src={img} alt='food' />
+                <span>{name}</span>
                 <p className=''>
                 <small>{info}</small>
                 </p>
             </div>
             
-            <div className='cart-items'> Rs. {price}
-                <button className="dec-button" onClick={handleDecrement}>-1</button>
+            <div className='cart-items f-r'> Rs. {price}
+                <button className="dec-button" onClick={handleDecrement}>-</button>
                 <p>{counter}</p>
-                <button className="inc-button" onClick={handleIncrement}>+1</button>
+                <button className="inc-button" onClick={handleIncrement}>+</button>
             </div>
             
-        </div>
+        </div>  */}
+
     </div>
   );
 };

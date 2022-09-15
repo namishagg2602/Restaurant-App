@@ -15,7 +15,10 @@ const Menu = () => {
             <center>
                 <h1 className='menu-head'>Menu List</h1>
 
+                <div className=''>
                 {MenuData.map((item) => ( <MenuItem item = {item} />))}
+                </div>
+                
             </center>
         </div>
 );

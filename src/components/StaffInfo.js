@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminNavbar from './AdminNavbar';
 import { StaffMember } from './StaffMember';
+import { StaffData } from './StaffData';
 
 export const StaffInfo = () => {
   return (
@@ -8,18 +9,12 @@ export const StaffInfo = () => {
         <AdminNavbar/>
         <center>
             <h1 className='table-main-head'>Staff Info</h1>
-        </center>
+        
 
-        <div className='table-row'>
-            <StaffMember/>
-            <StaffMember/> 
-            <StaffMember/>
-            <StaffMember/> 
-            <StaffMember/>
-            <StaffMember/> 
-            <StaffMember/>
-            <StaffMember/>        
+        <div className=''>
+            {StaffData.map((staff)=>(<StaffMember staff={staff}/>))}       
         </div>
+        </center>
     </div>
   );
 }

@@ -11,9 +11,11 @@ export const Inventory = () => {
             <center>
                 <h1 className='menu-head'>Inventory </h1>
                 
+                <div className=''>
                 {MenuData.map((item) => ( <InventoryItem item = {item} />))}
+                </div>
             </center>
         </div>
     
-  )
+  );
 }

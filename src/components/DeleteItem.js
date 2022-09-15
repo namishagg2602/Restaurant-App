@@ -2,10 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import AdminNavbar from './AdminNavbar';
+import { MenuData } from './MenuData';
 
 export const DeleteItem = () => {
 
-    const [item, Setitem]= useState('item');
+    var items=[];
+    {MenuData.map((item)=> items.push(item.name))}
+    const [item, Setitem]= useState(items);
 
     const handleSubmit = () =>
     {
@@ -19,8 +22,11 @@ export const DeleteItem = () => {
        
         <h3>Delete Item</h3>
         <br></br><br></br>
-        
-        <label>Item  :  <input className='item-input' value={item} onChange={(e)=> Setitem(e.target.value)}></input></label>
+        <form>
+        <select className='drop-list' value={item} onChange={(e) => Setitem(e.target.value)}>
+            {items.map((value) => (<option value={value} key={value}>{value}</option>))}
+        </select>
+        </form>
         <br></br><br></br>
 
         <Button variant='outline-warning' onClick={handleSubmit}>Delete</Button>

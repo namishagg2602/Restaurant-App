@@ -25,9 +25,9 @@ const CartItem = () =>
     return(
         <div>
             <div className="cart-items">Item 1 
-                            <button className="dec-button" onClick={handleDecrement}>-1</button>
+                            <button className="dec-button" onClick={handleDecrement}>-</button>
                             <p>{counter}</p>
-                            <button className="inc-button" onClick={handleIncrement}>+1</button></div>
+                            <button className="inc-button" onClick={handleIncrement}>+</button></div>
         </div>
     );
 }

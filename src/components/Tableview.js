@@ -22,14 +22,15 @@ const Tableview = () =>
                 </ul>
             </div>
 
-            <label> Status : <input value={status} onChange={(e)=> Setstatus(e.target.value)}></input></label>
+            {/* <label> Status : <input value={status} onChange={(e)=> Setstatus(e.target.value)}></input></label>
             <br></br><br></br>
 
-            <Button variant='outline-warning' onClick={SubmitStatus}> Submit Status</Button>
+            <Button variant='outline-warning' onClick={SubmitStatus}> Submit Status</Button> */}
 
             <br></br><br></br>
-            <Link to='/adminhome/showtables/bill'><Button variant='outline-warning'>View Bill</Button></Link> 
-           
+            <center>
+                <Link to='/adminhome/showtables/bill'><Button variant='outline-warning'>View Bill</Button></Link> 
+            </center>
         </div>
     );
 }

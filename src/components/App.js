@@ -19,8 +19,8 @@ function App() {
     <div className=''>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Homepage/>}/>
-        <Route path='/user/menu' element={<Menu/>}/> 
+        <Route path='/' element={<Menu/>}/>
+        {/*<Route path='/user/menu' element={<Menu/>}/> */}
         <Route path='adminhome/editinventory' element={<Inventory/>}/>
         <Route path='adminhome/editinventory/add' element={<AddItem/>}/>
         <Route path='adminhome/editinventory/delete' element={<DeleteItem/>}/>

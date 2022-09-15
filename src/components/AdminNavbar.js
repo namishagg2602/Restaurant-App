@@ -1,6 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
+import AdminTable from './AdminTable';
 
 function AdminNavbar() {
   return (
@@ -9,11 +11,12 @@ function AdminNavbar() {
       <Navbar.Brand href='/adminhome'>ErrorSmashers Restaurant</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto" style={{marginLeft: "600px"}}>
-            <Nav.Link href='/'>Logout</Nav.Link>
-            <Nav.Link href='/adminhome/showtables'>Orders</Nav.Link>
-            <Nav.Link href='/adminhome/editinventory'>Edit Inventory</Nav.Link>
-            <Nav.Link href='/adminhome/staff'>Staff</Nav.Link>
+          <Nav className="me-auto">
+            <Link to='/adminhome/showtables' element={<AdminTable/>}></Link>
+            <Nav.Link className='navbar-links'><Link to='/adminhome/showtables'>Orders</Link></Nav.Link>
+            <Nav.Link className='navbar-links'> <Link to='/adminhome/editinventory'>Edit Inventory</Link></Nav.Link>
+            <Nav.Link className='navbar-links'> <Link to='/adminhome/staff'>Staff</Link></Nav.Link>
+            <Nav.Link className='navbar-links'> <Link to='/'>Logout</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
