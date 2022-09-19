@@ -1,0 +1,40 @@
+footer {
+    background-color: #ebebeb;
+
+    /* border-top: 1px solid #000; */
+  
+    margin-top: 3rem;
+  
+    padding: 2rem 0 2rem 0;
+  
+    display: flex;
+  
+    justify-content: space-between;
+  
+    align-items: center;
+  
+  }
+  
+  
+  
+  footer p {
+  
+    font-weight: 500;
+  
+    max-width: 600px;
+  
+    margin-right: 1.5rem;
+  
+  }
+  
+  
+  
+  @media (max-width: 576px) {
+  
+    footer p {
+  
+      font-size: 0.8rem;
+  
+    }
+  
+  }

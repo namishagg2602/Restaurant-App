@@ -10,7 +10,7 @@ const AdminTable = () =>
             <center>
                 <h1 className='table-main-head'>Current Orders</h1>
             </center>
-            <div className='table-row'>
+            <div className=''>
                 <Tableview/>
                 <Tableview/>
                 <Tableview/>

@@ -6,17 +6,17 @@ import AdminTable from './AdminTable';
 
 function AdminNavbar() {
   return (
-    <Navbar sticky="top" bg="dark" variant="dark" expand="xxl" className='expand-navbar'>
+    <Navbar sticky="top" bg="light" variant="light" expand="xl">
       <Container>
-      <Navbar.Brand href='/adminhome'>ErrorSmashers Restaurant</Navbar.Brand>
+      <Navbar.Brand href='/adminhome'>Good Kitchen</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto" >
             <Link to='/adminhome/showtables' element={<AdminTable/>}></Link>
-            <Nav.Link className='navbar-links'><Link to='/adminhome/showtables'>Orders</Link></Nav.Link>
-            <Nav.Link className='navbar-links'> <Link to='/adminhome/editinventory'>Edit Inventory</Link></Nav.Link>
-            <Nav.Link className='navbar-links'> <Link to='/adminhome/staff'>Staff</Link></Nav.Link>
-            <Nav.Link className='navbar-links'> <Link to='/'>Logout</Link></Nav.Link>
+            <Nav.Link className='navbar-links'href='/adminhome/showtables'>Orders</Nav.Link>
+            <Nav.Link className='navbar-links'href ='/adminhome/editinventory'>Edit Inventory</Nav.Link>
+            <Nav.Link className='navbar-links' href ='/adminhome/staff'>Staff</Nav.Link>
+            <Nav.Link className='navbar-links' href = '/'>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

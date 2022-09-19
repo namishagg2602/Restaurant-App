@@ -14,6 +14,7 @@ import { CustomerBill } from './CustomerBill';
 import Menu from './Menu';
 import {Inventory} from './Inventory';
 import Login from './Login';
+
 function App() {
   return (
     <div className=''>
@@ -30,7 +31,7 @@ function App() {
         <Route path='/adminhome/showtables' element={<AdminTable/>}/>
         <Route path='/adminhome/staff' element={<StaffInfo/>}/>
         <Route path='/adminhome/showtables/bill' element={<AdminBill/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/admin' element={<Login/>}/>
       </Routes>
    </BrowserRouter>
    </div>

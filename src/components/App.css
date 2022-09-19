@@ -54,7 +54,7 @@
   border-radius: 10px;
   opacity: 90%;
   float: left;
-  
+  overflow: hidden;
 }
 
 .table-main-head{
@@ -79,25 +79,31 @@
 }
 
 .dec-button{
-  background-color: silver;
-  color: black;
+  background-color: white  ;
+  color: rgb(132, 20, 39);
+  border-color: rgb(132, 20, 39) ;
+  border-radius: 7px;
   height: 30px;
   font-size: 20px;
-  width: fit-content;
+  width: 40px !important;
   height: fit-content;
   margin: 10px;
   margin-left: 40px;
+  border-width: 1px
 }
 
 
 .inc-button{
-  background-color: silver;
-  color: black;
+  background-color: white;
+  color: rgb(132, 20, 39);
+  border-color: rgb(132, 20, 39) ;
+  border-radius: 7px;
   height: 30px;
   font-size: 20px;
-  width: fit-content;
+  width: 40px !important;
   height: fit-content;
   margin: 10px;
+  border-width: 1px;
   
 }
 
@@ -161,16 +167,16 @@ th{
 
 .menu-item-block{
   background: #000;
-  width:fit-content;
+  width:1200px;
   padding-left: 60px;
   padding-right: 60px;
-  padding-bottom: 15px;
   border-radius: 20px;
-  margin: 5px;
+  margin: 10px;
   color: #fca311;
+  opacity: 85%;
 }
 .menu-item-block:hover{
-  background:#fca311;
+  background: #fca311;
   color: #000;
 }
 
@@ -192,9 +198,10 @@ th{
 }
 
 .menu-head{
+
   background-color: #000;
   color: #fca311;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   margin: 30px;
   width: fit-content;
@@ -246,4 +253,24 @@ th{
   padding: 10px;
   background-color: #fca311;
   color: #000;
+}
+
+.input-width{
+  width: 40px;
+}
+
+.btn-primary{
+  color: rgb(132, 20, 39) !important;
+  background-color: white !important;
+  border-color: rgb(132, 20, 39) !important;
+}
+
+.btn-primary:hover{
+  color: rgb(250, 61, 93) !important;
+  background-color: #FFE0BD !important;
+  border-color: rgb(250, 61, 93) !important;
+}
+
+.navbar-font{
+  font-family: 'Lobster', cursive !important;
 }

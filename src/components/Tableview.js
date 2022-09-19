@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const Tableview = () =>
 {
@@ -11,6 +12,7 @@ const Tableview = () =>
         // pushing status to db from here
     }
     return(
+        
         <div className='table-block'>
             <h3 >Table No. 1</h3>
             <div style={{color:"white"}}>
@@ -32,6 +34,8 @@ const Tableview = () =>
                 <Link to='/adminhome/showtables/bill'><Button variant='outline-warning'>View Bill</Button></Link> 
             </center>
         </div>
+
+        
     );
 }
 
