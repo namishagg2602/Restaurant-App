@@ -6,10 +6,10 @@ function TableHead () {
       <div className='bill-item'>
         <table>
         <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th >Price</th>
-          <th>Item Total</th>
+          <th width="150px">Item</th>
+          <th width="120px">Quantity</th>
+          <th width="100px">Price</th>
+          <th width="200px">Item Total</th>
         </tr>
         </table>
       </div>

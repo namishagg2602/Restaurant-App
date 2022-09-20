@@ -3,6 +3,7 @@ import MenuItem from './MenuItem';
 import { MenuData } from './MenuData';
 import { CustomerNavbar } from './CustomerNavbar';
 import axios from 'axios';
+import Footer from './Footer';
 
 
 
@@ -58,12 +59,13 @@ const Menu = () => {
 
    
     return (
+        <>
         <div className=''>
              <CustomerNavbar/>
             <center>
                 <h1 className='menu-head'>Menu</h1>
                 <h5>
-                    Table No. 
+                    Table No. <span></span>
                     <select value={tableno} onChange={(e)=>Settableno(e.target.value)}>
                         {tablenumbers.map((value)=>(<option value={value} key={value}>{value}</option>))}
                     </select>
@@ -75,8 +77,10 @@ const Menu = () => {
                             {categories.map(function(category)
                             {
                                 return(
+                                    <center>
                                     <div>
-                                        <h2>{category}</h2>
+                                        <h2 className='category-block'>{category}</h2>
+                                    
                                         {data.map(function(item,i){
                                             var obj={
                                                 item_name : item.item_name,
@@ -90,7 +94,9 @@ const Menu = () => {
                                             (item.item_category===category?<MenuItem key={i} obj={obj}/>:'')
                                             );
                                         })}
+                                        <br></br>
                                     </div>
+                                    </center>
 
                                 );
                             })}
@@ -118,6 +124,8 @@ const Menu = () => {
                 
             </center>
         </div>
+        <Footer></Footer>
+        </>
     )
 };
 

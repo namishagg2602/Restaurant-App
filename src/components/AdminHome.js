@@ -2,10 +2,12 @@ import React from 'react';
 import AdminHomeNavbar from './AdminHomeNavbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const AdminHome = () =>
 {
     return(
+        <>
         <div>
             <AdminHomeNavbar/>
 
@@ -22,6 +24,8 @@ const AdminHome = () =>
                 </div>
             </center>
         </div>
+        <Footer></Footer>
+        </>
     );
 
 }

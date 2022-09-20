@@ -41,8 +41,7 @@ const Login = () => {
     }
     return (
         <>
-          <br></br>
-          <br></br>
+          
           <div>{currentUser ? (<AdminHome />) : Text}</div>
           {!currentUser ?
             <section class=" text-center text-lg-start">
@@ -58,14 +57,16 @@ const Login = () => {
                       <form>
     
                         <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example1">Email address</label>
                           <input type="email" ref={emailRef} placeholder='Email' class="form-control" />
-                          <label class="form-label" for="form2Example1">Email address</label>
+                          
                         </div>
     
     
                         <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example2">Password</label>
                           <input ref={passwordRef} type="password" placeholder='Password' id="form2Example2" class="form-control" />
-                          <label class="form-label" for="form2Example2">Password</label>
+                         
                         </div>
     
     

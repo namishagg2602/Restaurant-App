@@ -9,7 +9,7 @@ export const CustomerNavbar = () => {
     <div>
         <Navbar sticky="top" bg="dark" variant="dark" expand="xl" >
             <Container>
-            <Navbar.Brand  href='/user/menu'>ErrorSmashers Restaurant</Navbar.Brand>
+            <Navbar.Brand  href='/user/menu'>Good Kitchen</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -17,6 +17,7 @@ export const CustomerNavbar = () => {
                     <Nav.Link className='navbar-links'> <Link to='/user/cart'>Cart</Link></Nav.Link>
                     <Nav.Link className='navbar-links'> <Link to='/user/bill'>Check Bill</Link></Nav.Link> */}
                     <Nav.Link className='navbar-links' href='/'>Home</Nav.Link>
+                    <Nav.Link className='navbar-links' href='/user/menu'>Menu</Nav.Link>
                     <Nav.Link className='navbar-links' href='/user/cart'>Cart</Nav.Link>
                     <Nav.Link className='navbar-links' href='/user/bill'>Check Bill</Nav.Link> 
                 </Nav>

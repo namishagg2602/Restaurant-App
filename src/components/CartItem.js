@@ -2,16 +2,16 @@ import React, { useState} from 'react';
 
 const CartItem = ({cartitems}) =>
 {
-    const { qty, table_id, item_id, item_name, item_price,cust_notes} = cartitems;
-    const [qty_ord,Setqty_ord]= useState(cartitems.qty_ord);
+    let { prmkey,qty_ord, table_id, item_id, item_name, item_price} = cartitems;
+    const [qto,Setqto]= useState(qty_ord);
 
     const handleDecrement = () =>
     {
     
-        if(qty_ord===1)
+        if(qto===1)
 
         {
-            fetch(`http://localhost:8080/menu/delete/${item_id}`,
+            fetch(`http://localhost:8080/cart/delete/${prmkey}`,
   
             {
         
@@ -24,18 +24,12 @@ const CartItem = ({cartitems}) =>
             })
         }
         else
-        if(qty_ord === 0)
         {
-            
-            alert("Items cannot be less than 0");   
-        }
-        else
-        {
-            Setqty_ord(qty_ord-1);
-            var order_id=table_id;
-            var status = 'active';
-            const obj = {order_id,table_id,item_name,item_price,qty_ord,cust_notes,status}
-            fetch(`http://localhost:8080/menu/update/${item_id}`,
+            Setqto(qto-1);
+            qty_ord=qto;
+            var obj = {prmkey, qty_ord, table_id, item_id, item_name, item_price};
+
+            fetch(`http://localhost:8080/cart/update/${prmkey}`,
     
                 {
             
@@ -54,11 +48,11 @@ const CartItem = ({cartitems}) =>
     const handleIncrement = () =>
     {
     
-        Setqty_ord(qty_ord+1);
-        var order_id=table_id;
-        var status = 'active';
-        const objs = {order_id,table_id,item_name,item_price,qty_ord,cust_notes,status}
-        fetch(`http://localhost:8080/menu/update/${item_id}`,
+        Setqto(qto+1);
+        qty_ord=qto;
+        var objs = {prmkey, qty_ord, table_id, item_id, item_name, item_price};
+        console.log("primary key : "+prmkey);
+        fetch(`http://localhost:8080/cart/update/${prmkey}`,
   
             {
         
@@ -76,11 +70,19 @@ const CartItem = ({cartitems}) =>
 
     return(
         <div>
-            <div className="cart-items">{item_name}
+            <table>
+                <thead></thead>
+<tbody>
+           
+            <div className="cart-items"><td width="300px"> {item_name}</td>
+            <td width="300px">
                             <button className="dec-button" onClick={handleDecrement}>-</button>
-                            <p>{qty_ord}</p>
-                            <button className="inc-button" onClick={handleIncrement}>+</button></div>
-                            
+                            <span>{qto}</span>
+                            <button className="inc-button" onClick={handleIncrement}>+</button>
+                            </td>
+                            </div>
+                            </tbody>
+            </table>
         </div>
     );
 }

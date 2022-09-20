@@ -90,7 +90,7 @@ export const DeleteItem = () => {
         <br></br><br></br>
         <form>
         <select className='drop-list' value={name} onChange ={(e)=> fun(e)}>
-            {menu.map((value) => (<option value={value.item_name} key={value.item_id}>{value.item_name}</option>))}
+            {menu.map((value) => (<option key={value.item_id}>{value.item_name}</option>))}
         </select>
         </form>
         <br></br><br></br>

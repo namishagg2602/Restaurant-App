@@ -1,32 +1,37 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import NavBar from './NavBar';
-import { Link } from "react-router-dom";
 
+import './mainpage.css';
+import { Button } from 'react-bootstrap';
+import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import banner from './banner1.png';
 
-const Homepage = () =>
-{
+const Homepage = () => (
+    <div className='hm'>
 
-    return (
-            <div >
-                <NavBar/>
-                <center>
-                    <div className='home-block'>
-                        <h1 className='welcome-msg'>Welcome to our Restaurant</h1>
-                        
-                        <div className='button-text'>
-                            
-                            <Link to='/user/menu'><Button className="home-button" variant='outline-warning'>Customer</Button></Link>
-                                <br></br>
-                            <Link to='/adminhome'><Button className="home-button" variant='outline-warning'>Admin</Button></Link>
-                            
-                        </div>
-                    </div>
-                </center>
-            </div>
-    );
-    
-};
+  <header>
 
+    <div className='header-content'>
 
-export default Homepage; 
+      <Logo />
+
+      <div className='content-main'>
+
+        <h1>Delicious food for your cravings</h1>
+
+        <p >We make fresh and healthy meals with different recipes</p>
+
+        <button>
+            <Link to='/user/menu'>View Menu <i class="bi bi-arrow-right"></i></Link>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+  </div>
+);
+
+export default Homepage;

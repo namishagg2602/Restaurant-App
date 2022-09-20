@@ -10,7 +10,7 @@ const AdminInventoryNavbar = () => {
     <div>
     <Navbar sticky="top" bg="dark" variant="dark" expand="xl" >
       <Container>
-      <Navbar.Brand href='/adminhome'>ErrorSmashers Restaurant</Navbar.Brand>
+      <Navbar.Brand href='/adminhome'>Good Kitchen</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >

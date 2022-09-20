@@ -6,7 +6,7 @@ import AdminTable from './AdminTable';
 
 function AdminNavbar() {
   return (
-    <Navbar sticky="top" bg="light" variant="light" expand="xl">
+    <Navbar sticky="top" bg="dark" variant="dark" expand="xl">
       <Container>
       <Navbar.Brand href='/adminhome'>Good Kitchen</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
