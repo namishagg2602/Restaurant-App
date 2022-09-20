@@ -8,20 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orders")
-public class orders {
-
+@Table(name = "cart")
+public class cart {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@Column(name = "order_id", nullable = false)
-	private Long order_id;
+	private Long prmkey;
 	
-	@Column(name = "table_id",nullable = false)
+	@Column(name = "qty_ord", nullable = false)
+	private int qty_ord;
+	
+	@Column(name = "table_id", nullable = false)
 	private Long table_id;
 	
-	@Column(name = "item_id", nullable = false)
+	@Column(name = "item_id", nullable=false)
 	private Long item_id;
 	
 	@Column(name = "item_name", nullable=false)
@@ -29,31 +29,7 @@ public class orders {
 	
 	@Column(name = "item_price", nullable = false)
 	private double item_price;
-	
-	@Column(name = "qty_ord", nullable = false)
-	private int qty_ord;
-	
-	@Column(name = "cust_notes")
-	private String cust_notes;
 
-	@Column(name = "status")
-	private String status;
-
-	public Long getOrder_id() {
-		return order_id;
-	}
-
-	public void setOrder_id(Long order_id) {
-		this.order_id = order_id;
-	}
-
-	public Long getTable_id() {
-		return table_id;
-	}
-
-	public void setTable_id(Long table_id) {
-		this.table_id = table_id;
-	}
 
 	public Long getItem_id() {
 		return item_id;
@@ -71,28 +47,21 @@ public class orders {
 		this.qty_ord = qty_ord;
 	}
 
-	public String getStatus() {
-		return status;
+	public Long getTable_id() {
+		return table_id;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	
-	public Long getId() {
-		return id;
+	public void setTable_id(Long table_id) {
+		this.table_id = table_id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getCust_notes() {
-		return cust_notes;
+
+	public Long getPrmkey() {
+		return prmkey;
 	}
 
-	public void setCust_notes(String cust_notes) {
-		this.cust_notes = cust_notes;
+	public void setPrmkey(Long prmkey) {
+		this.prmkey = prmkey;
 	}
 
 	public String getItem_name() {
@@ -110,5 +79,8 @@ public class orders {
 	public void setItem_price(double item_price) {
 		this.item_price = item_price;
 	}
+	
+	
+	
 	
 }

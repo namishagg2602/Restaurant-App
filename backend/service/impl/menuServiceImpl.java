@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -18,21 +19,20 @@ public class menuServiceImpl implements menuService{
 	private menuRepository menuRepo;
 	
 	public menu saveMenu(menu menu) {
-		// TODO Auto-generated method stub
+		
 		return menuRepo.save(menu);
 	}
 
 	public List<menu> getMenu() {
-		// TODO Auto-generated method stub
+		
 		return menuRepo.findAll();
 	}
 
 	
-	public boolean deleteMenu(menu Menu) {
+	public boolean deleteMenu(@PathVariable Long id) {
 		
 		
-//		Optional<menu> Menu = menuRepo.findById(id);
-		
+		Optional<menu> Menu = menuRepo.findById(id);
 		
 		if(Menu.isPresent()) {
 			menuRepo.delete(Menu.get());
@@ -41,5 +41,6 @@ public class menuServiceImpl implements menuService{
 	
 		return false;
 	}
+	
 	
 }

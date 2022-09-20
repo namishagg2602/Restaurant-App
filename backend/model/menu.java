@@ -22,7 +22,7 @@ public class menu {
 	@Column(name = "item_category", nullable = false)
 	private String item_category;
 
-	@Column(name = "item_desc", nullable = false)
+	@Column(name = "item_desc",nullable = true)
 	private String item_desc;
 	
 	@Column(name = "item_price", nullable = false)
