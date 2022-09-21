@@ -51,7 +51,7 @@ const CartItem = ({cartitems}) =>
         Setqto(qto+1);
         qty_ord=qto;
         var objs = {prmkey, qty_ord, table_id, item_id, item_name, item_price};
-        console.log("primary key : "+prmkey);
+        // console.log("primary key : "+prmkey);
         fetch(`http://localhost:8080/cart/update/${prmkey}`,
   
             {

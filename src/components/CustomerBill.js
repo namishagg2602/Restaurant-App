@@ -18,7 +18,7 @@ export const CustomerBill = () => {
 
 
   useEffect(()=>{
-    Setdata([]);
+    // Setdata([]);
           
     axios.get("http://localhost:8080/orders/getAll")
         .then(res => {console.log(res)

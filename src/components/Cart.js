@@ -27,10 +27,10 @@ const Cart = () =>
 
     useEffect(()=>{
 
-        
+         
           
         axios.get("http://localhost:8080/cart/getAll")
-            .then(res => {console.log(res)
+            .then(res => {console.log("")
                             setCart(res.data)})
             .catch(err=>{
                 console.log(err)
@@ -45,7 +45,71 @@ const Cart = () =>
       const updateinventory=()=>{
 
         
-        return;
+       
+        axios.get("http://localhost:8080/menu/getAll")
+        .then(res => {console.log(res.data)
+                        setmenu(res.data)})
+        .catch(err=>{
+            console.log(err)
+        }) 
+
+        
+        let id=[];
+        let categ=[];
+        let names=[];
+        let desc=[];
+        let prices=[];
+        let qtys=[];
+    
+        data.map(function(cartrow)
+        {    
+            menu.map(function(menurow)
+            {
+                if(cartrow.item_id==menurow.item_id)
+                {
+                    id.push(cartrow.item_id);
+                    categ.push(menurow.item_category);
+                    names.push(menurow.item_name);
+                    desc.push(menurow.item_desc);
+                    prices.push(menurow.item_price);
+                    qtys.push(menurow.qty_avl-catrow.qty_ord);
+                }
+                return(
+                    <div></div>
+                );
+
+            })
+
+            return(
+                <div></div>
+            );
+        })
+
+        for(let i=0;i<id.length;i++)
+        {
+            let item_id=id[i];
+            let item_category=categ[i];
+            let item_name=names[i];
+            let item_desc=desc[i];
+            let item_price=prices[i];
+            let qty_avl=qtys[i];
+
+            const menuobj={item_id,item_category,item_name,item_desc,item_price,qty_avl};
+            console.log(item_id);
+            fetch(`http://localhost:8080/menu/update/${item_id}`,
+
+            {
+        
+                method:`PUT`,
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(menuobj)
+        
+            }).then((response )=>{
+                //response.json().filter(orderId=>(response.orderId==orderId)).then(()=>
+                    console.log(item_id);
+        
+            })
+        }
 
 
       }
@@ -72,69 +136,7 @@ const Cart = () =>
 
         // importing data from menu table and update inventory
 
-        // axios.get("http://localhost:8080/menu/getAll")
-        // .then(res => {console.log(res)
-        //                 setmenu(res.data)})
-        // .catch(err=>{
-        //     console.log(err)
-        // }) 
-
-        // let id=[];
-        // let categ=[];
-        // let names=[];
-        // let desc=[];
-        // let prices=[];
-        // let qtys=[];
-    
-        // data.map(function(cartrow,i)
-        // {    
-        //     menu.map(function(menurow,i)
-        //     {
-        //         if(cartrow.item_id==menurow.item_id)
-        //         {
-        //             id.push(cartrow.item_id);
-        //             categ.push(menurow.item_category);
-        //             names.push(menurow.item_name);
-        //             desc.push(menurow.item_desc);
-        //             prices.push(menurow.item_price);
-        //             qtys.push(menurow.qty_avl-catrow.qty_ord);
-        //         }
-        //         return(
-        //             <div></div>
-        //         );
-
-        //     })
-
-        //     return(
-        //         <div></div>
-        //     );
-        // })
-
-        // for(let i=0;i<id.length();i++)
-        // {
-        //     let item_id=id[i];
-        //     let item_category=categ[i];
-        //     let item_name=names[i];
-        //     let item_desc=desc[i];
-        //     let item_price=prices[i];
-        //     let qty_avl=qtys[i];
-
-        //     const menuobj={item_id,item_category,item_name,item_desc,item_price,qty_avl};
-        //     fetch(`http://localhost:8080/menu/update/${item_id}`,
-
-        //     {
-        
-        //         method:`PUT`,
-        //         headers:{"Content-Type":"application/json"},
-        //         body:JSON.stringify(menuobj)
-        
-        //     }).then((response )=>{
-        //         //response.json().filter(orderId=>(response.orderId==orderId)).then(()=>
-        //             //console.log(response)
-        
-        //     })
-        // }
-
+        updateinventory();
        
 
 
