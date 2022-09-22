@@ -2,9 +2,11 @@ import React from 'react'
 import AdminNavbar from './AdminNavbar';
 import { StaffMember } from './StaffMember';
 import { StaffData } from './StaffData';
+import Footer from './Footer';
 
 export const StaffInfo = () => {
   return (
+    <>
     <div>
         <AdminNavbar/>
         <center>
@@ -16,5 +18,7 @@ export const StaffInfo = () => {
         </div>
         </center>
     </div>
+    <Footer></Footer>
+    </>
   );
 }

@@ -331,3 +331,16 @@ th{
   z-index: 2;
   background-image: url("./banner1.png");
 }
+
+
+.logout-right{
+  margin-left: 450px;
+}
+
+.logout-right-m{
+  margin-left: 600px;
+}
+
+.logout-right-mm{
+  margin-left: 700px;
+}

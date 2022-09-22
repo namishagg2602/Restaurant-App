@@ -1,9 +1,22 @@
 import React, { useState} from 'react';
+import { Button } from 'react-bootstrap';
 
 const CartItem = ({cartitems}) =>
 {
     let { prmkey,qty_ord, table_id, item_id, item_name, item_price} = cartitems;
     const [qto,Setqto]= useState(qty_ord);
+    
+
+    const deletefromcart=()=>{
+        fetch(`http://localhost:8080/cart/delete/${prmkey}`,
+            {
+                method:`DELETE`
+            }).then((response )=>{
+                //response.json().filter(orderId=>(response.orderId==orderId)).then(()=>
+                    console.log("")
+            })
+    }
+
 
     const handleDecrement = () =>
     {
@@ -12,15 +25,11 @@ const CartItem = ({cartitems}) =>
 
         {
             fetch(`http://localhost:8080/cart/delete/${prmkey}`,
-  
             {
-        
                 method:`DELETE`
-        
             }).then((response )=>{
                 //response.json().filter(orderId=>(response.orderId==orderId)).then(()=>
-                    //console.log(response)
-        
+                    console.log("")
             })
         }
         else
@@ -44,6 +53,7 @@ const CartItem = ({cartitems}) =>
                 })
         }
     }
+
 
     const handleIncrement = () =>
     {
@@ -76,9 +86,9 @@ const CartItem = ({cartitems}) =>
            
             <div className="cart-items"><td width="300px"> {item_name}</td>
             <td width="300px">
-                            <button className="dec-button" onClick={handleDecrement}>-</button>
-                            <span>{qto}</span>
-                            <button className="inc-button" onClick={handleIncrement}>+</button>
+                            
+                            <span style={{marginRight:'100px'}}>{qto}</span>
+                            <Button  variant='outline-warning' onClick={deletefromcart}>Remove</Button>
                             </td>
                             </div>
                             </tbody>

@@ -11,7 +11,7 @@ const Cart = () =>
     const [notes,Setnotes]= useState('');
     const [data,setCart]=useState([]);
     const [tableno,Settable] = useState(0);
-    const [menu,setmenu]= useState([]);
+    const [menu,Setmenu]= useState([]);
 
 
     {/*const url="http://localhost:8080/user/menu";
@@ -36,6 +36,14 @@ const Cart = () =>
                 console.log(err)
             }) 
 
+        axios.get("http://localhost:8080/menu/getAll")
+        .then(response => {console.log(response.data)
+                        Setmenu(response.data)})
+        .catch(err=>{
+            //  console.log(err)
+        }) 
+    
+
         data.map((x)=>(Settable(x.table_id)));
 
 
@@ -43,16 +51,10 @@ const Cart = () =>
       })
 
       const updateinventory=()=>{
-
+      let flag=false;
         
        
-        axios.get("http://localhost:8080/menu/getAll")
-        .then(res => {console.log(res.data)
-                        setmenu(res.data)})
-        .catch(err=>{
-            console.log(err)
-        }) 
-
+        
         
         let id=[];
         let categ=[];
@@ -60,31 +62,47 @@ const Cart = () =>
         let desc=[];
         let prices=[];
         let qtys=[];
+
+        let cartid=[];
+        let cartq=[];
     
-        data.map(function(cartrow)
-        {    
-            menu.map(function(menurow)
-            {
-                if(cartrow.item_id==menurow.item_id)
-                {
-                    id.push(cartrow.item_id);
-                    categ.push(menurow.item_category);
-                    names.push(menurow.item_name);
-                    desc.push(menurow.item_desc);
-                    prices.push(menurow.item_price);
-                    qtys.push(menurow.qty_avl-catrow.qty_ord);
-                }
-                return(
-                    <div></div>
-                );
+        data.map((cartrow)=>(cartid.push(cartrow.item_id)));
+        data.map((cartrow)=>(cartq.push(cartrow.qty_ord)));
 
-            })
+        console.log("cart id ="+cartid);
+        console.log("cart qty="+cartq);
+        console.log("menu is : "+menu);
+        menu.map((menurow)=>
+                        { 
+                            console.log("menu = " +menurow.item_id);
+                            for(let z=0;z<cartid.length;z++)
+                            {
+                            if(cartid[z]==menurow.item_id)
+                            {
+                                id.push(menurow.item_id);
+                                categ.push(menurow.item_category);
+                                names.push(menurow.item_name);
+                                desc.push(menurow.item_desc);
+                                prices.push(menurow.item_price);
 
-            return(
-                <div></div>
-            );
-        })
+                                if(menurow.qty_avl<cartq[z])
+                                {
+                                    flag=true;
+                                    alert('Item '+menurow.item_name+' not available in enough quantity');
+                                }
+                                qtys.push(menurow.qty_avl-cartq[z]);
+                            }
+                        }
+                            return(
+                                <div></div>
+                            );
+            
+                        })
 
+        console.log('before for');
+
+        if(flag==false)
+        {
         for(let i=0;i<id.length;i++)
         {
             let item_id=id[i];
@@ -94,8 +112,8 @@ const Cart = () =>
             let item_price=prices[i];
             let qty_avl=qtys[i];
 
-            const menuobj={item_id,item_category,item_name,item_desc,item_price,qty_avl};
-            console.log(item_id);
+            let menuobj={item_id,item_category,item_name,item_desc,item_price,qty_avl};
+            console.log('dshjhmbsax');
             fetch(`http://localhost:8080/menu/update/${item_id}`,
 
             {
@@ -109,38 +127,33 @@ const Cart = () =>
                     console.log(item_id);
         
             })
-        }
 
+
+        }
+    }
+        console.log('after for loop');
+        return flag;
 
       }
 
       const placeorder = (e) =>
       {
+
         e.preventDefault();
-        
-        // fetching cart table
-        // data.map(function(row,i){
-        //     fetch(`http://localhost:8080/cart/delete${row.prmkey}`,
-  
-        //         {
-            
-        //         method:`DELETE`
-            
-        //         }).then((response )=>{
-            
-        //         })nt
-        // return(
-        //     <div></div>
-        // );
-        // })
+       
 
         // importing data from menu table and update inventory
 
-        updateinventory();
+        if(data.length>0)
+        {
+
+         let flag=updateinventory();
        
 
+         if(flag==false)
+         {
 
-        alert('Order has been successfully placed!');
+        alert('Order has been successfully placed!'+'\n You can check your bill now');
         // adding cart items to order table
         data.map(function(cartrow,i)
         {
@@ -150,11 +163,10 @@ const Cart = () =>
             let item_price = cartrow.item_price;
             let qty_ord = cartrow.qty_ord;
             let item_id = cartrow.item_id;
+            let cust_notes=notes;
             let status = 'active';
 
-
-
-            const items = {order_id, table_id,item_id, item_name, item_price, qty_ord,notes,status}
+            const items = {order_id, table_id,item_id, item_name, item_price, qty_ord,cust_notes,status}
             console.log(items)
             fetch("http://localhost:8080/orders/add",{
                 method:"POST",
@@ -170,8 +182,35 @@ const Cart = () =>
                      
             );
         }  )
+
+         Setnotes('');
+        // deleting items from cart
+        data.map((crow)=>{
+
+            fetch(`http://localhost:8080/cart/delete/${crow.prmkey}`,
+            {
+                method:`DELETE`
+            }).then((response )=>{
+                //response.json().filter(orderId=>(response.orderId==orderId)).then(()=>
+                    console.log("")
+            })
+
+            return(
+                <div></div>
+            );
+        })
+
+
         
+
     }
+}else
+{
+    alert('Your cart is empty!');
+}
+}
+        
+    
 
     return(
         <>

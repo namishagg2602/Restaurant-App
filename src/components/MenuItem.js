@@ -30,6 +30,9 @@ const MenuItem = ({obj}) => {
     const addtocart =(e)=>{
         e.preventDefault();
 
+        if(qty_ord>0)
+        {
+
         const items = { qty_ord, table_id, item_id, item_name, item_price};
 
         fetch("http://localhost:8080/cart/add",{
@@ -39,6 +42,11 @@ const MenuItem = ({obj}) => {
         }).then(()=>{
             console.log("New item added")
         })
+
+        }
+        else{
+            alert('No item selected');
+        }
     }
 
     // const handleAddToCart = (e) =>{

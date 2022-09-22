@@ -9,30 +9,30 @@ import Footer from './Footer';
 
 const Menu = () => {
 
-    const [counter,Setcounter]= useState(0);
+    // const [counter,Setcounter]= useState(0);
 
-    const handleDecrement = () =>
-    {
-        if(counter === 0)
-        {
-            alert("Items cannot be less than 0");   
-        }
-        else
-        {
-            Setcounter(counter-1);
-        }
-    }
+    // const handleDecrement = () =>
+    // {
+    //     if(counter === 0)
+    //     {
+    //         alert("Items cannot be less than 0");   
+    //     }
+    //     else
+    //     {
+    //         Setcounter(counter-1);
+    //     }
+    // }
 
-    const handleIncrement = () =>
-    {
-        Setcounter(counter+1);
+    // const handleIncrement = () =>
+    // {
+    //     Setcounter(counter+1);
         
-    }
+    // }
 
     const [data,setMenu]=useState([]);
     const [categories,Setcategories]=useState([]);
-    const [tableno,Settableno]=useState();
-    var tablenumbers=[1,2,3,4,5,6,7,8,9];
+    const [tableno,Settableno]=useState(1);
+    var tablenumbers=[1,2,3,4,5,6,7,8,9,10];
 
     const unique = (value,index,self)=>
     {

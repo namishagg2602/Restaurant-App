@@ -33,7 +33,7 @@ function AdminHomeNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" style={{marginLeft: "200px"}}>
-            <Button className='btn-primary' disabled ={!currentUser}  onClick={handleLogout}> LogOut</Button>
+            <Button className='btn-primary logout-right-mm' disabled ={!currentUser}  onClick={handleLogout}> Logout</Button>
             {/* <Nav.Link className='navbar-links'><Link to='/'>Logout</Link></Nav.Link> */}
           </Nav>
         </Navbar.Collapse>

@@ -24,6 +24,12 @@ export const AddItem = () => {
       }).then(()=>{
           console.log("New item added")
       })
+
+      alert('Item added');
+      Setitem_category('');
+      Setitem('');
+      Setitem_price(0);
+      Setqty_avl(0);
     }
 
   return (

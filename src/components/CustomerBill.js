@@ -15,10 +15,11 @@ export const CustomerBill = () => {
   var qty = [];
   const [showtax, setShowTax] = useState(0);
   const [showprice, setShowPrice] = useState(0);
+  const [tableno,settableno]=useState(0);
+  const [filterdata,setfilter]=useState([]);
 
 
   useEffect(()=>{
-    // Setdata([]);
           
     axios.get("http://localhost:8080/orders/getAll")
         .then(res => {console.log(res)
@@ -31,11 +32,20 @@ export const CustomerBill = () => {
         data.map(function(orderrow,i)
         {
           const {order_id, table_id,item_id, item_name, item_price, qty_ord,notes,status} = orderrow;
+          settableno(orderrow.table_id);
+          
           price.push(item_price);
           qty.push(qty_ord);
           return(
             <div></div>
           );
+        })
+
+        data.map((orrow)=>{
+          if(orrow.table_id==tableno)
+          {
+            setfilter([...filterdata,orrow]);
+          }
         })
 
         for (let i=0; i<price.length; i++){
@@ -64,9 +74,17 @@ export const CustomerBill = () => {
                 item_price: orderrow.item_price,
                 qty_ord : orderrow.qty_ord,
                } 
+               if(tableno==orderrow.table_id)
+               {
               return(
                  <TableRows key={i} obj={obj}/>
-              );
+                  );
+               }
+              else{
+                return(
+                  <div></div>
+                );
+              }
 
             }
             )}
