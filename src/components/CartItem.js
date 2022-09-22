@@ -8,6 +8,8 @@ const CartItem = ({cartitems}) =>
     
 
     const deletefromcart=()=>{
+
+        
         fetch(`http://localhost:8080/cart/delete/${prmkey}`,
             {
                 method:`DELETE`

@@ -75,8 +75,11 @@ const AdminTable = () =>
             totalprice+=prices[i]*qtys[i];
           }
           console.log(totalprice);
+          let tax=totalprice*0.05;
           setShowTax(totalprice*0.05);
-          totalprice = totalprice+showtax;
+          totalprice = totalprice+tax;
+          console.log(totalprice);
+          console.log(tax);
           setShowPrice(totalprice);
           
 
